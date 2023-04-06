@@ -1,0 +1,71 @@
+@import url(https://fonts.google.com/specimen/Sofia);
+body{
+ background-image: url(tree1.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+}
+.wi{
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    background-image: url(tree.jpg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+}
+#wi{
+    height: 350px;
+    width: 350px;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+    background-image: url(wi1.jpeg);
+}
+#wi:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s ease-in-out;
+}
+h3{
+    font-size: 23px;
+    background-image: url(tree.jpg);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-position: center;
+    background-size: cover;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#wi1{
+    border-radius: 5;
+    color: white;
+    text-align: center;
+    margin: 8px;
+    float: left;
+}
+p{
+    margin-top: 50px;
+    margin-left: 8px;
+    margin-right: 8px;
+    text-align: center;
+    font-family:cursive;
+}
+section{
+    display: flex;
+    width: 290px;
+    height: 160px;
+}
+section img{
+    width: 0px;
+    flex-grow: 1;
+    object-fit: cover;
+    opacity: .8;
+    transition: .5s ease;
+}
+section img:hover{
+    width: 120px;
+    opacity: 1;
+    filter: contrast(120%);
+
+}
+
