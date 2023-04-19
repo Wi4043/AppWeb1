@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Casa de cambio</title>
+  </head>
+  <body>
+    <h1>Casa de cambio</h1>
+    <form>
+      <label for="moneda_origen">Tipo de moneda a cambiar:</label>
+      <select id="moneda_origen" name="moneda_origen">
+        <option value="dolar">Dólar</option>
+        <option value="soles">Soles</option>
+        <option value="euros">Euros</option>
+      </select>
+      <br>
+      <label for="moneda_destino">Tipo de moneda a recibir:</label>
+      <select id="moneda_destino" name="moneda_destino">
+        <option value="dolar">Dólar</option>
+        <option value="soles">Soles</option>
+        <option value="euros">Euros</option>
+      </select>
+      <br>
+      <button type="button" onclick="calcular()">Calcular</button>
+    </form>
+    <script>
+      function calcular() {
+        var moneda_origen = document.getElementById("moneda_origen").value;
+        var moneda_destino = document.getElementById("moneda_destino").value;
+        var tasa;
+        switch (moneda_origen) {
+          case "dolar":
+            switch (moneda_destino) {
+              case "dolar":
+                tasa = 1;
+                break;
+              case "soles":
+                tasa = 3.9; // ejemplo de tasa de cambio
+                break;
+              case "euros":
+                tasa = 0.85; // ejemplo de tasa de cambio
+                break;
+            }
+            break;
+          case "soles":
+            switch (moneda_destino) {
+              case "dolar":
+                tasa = 0.25; // ejemplo de tasa de cambio
+                break;
+              case "soles":
+                tasa = 1;
+                break;
+              case "euros":
+                tasa = 0.21; // ejemplo de tasa de cambio
+                break;
+            }
+            break;
+          case "euros":
+            switch (moneda_destino) {
+              case "dolar":
+                tasa = 1.18; // ejemplo de tasa de cambio
+                break;
+              case "soles":
+                tasa = 4.69; // ejemplo de tasa de cambio
+                break;
+              case "euros":
+                tasa = 1;
+                break;
+            }
+            break;
+        }
+        var total = 10 * tasa; // ejemplo de monto a cambiar
+        alert("Total a recibir: " + total.toFixed(2) + " " + moneda_destino);
+      }
+    </script>
+  </body>
+</html>
