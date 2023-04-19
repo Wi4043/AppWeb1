@@ -1,76 +1,52 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Casa de cambio</title>
-  </head>
-  <body>
-    <h1>Casa de cambio</h1>
-    <form>
-      <label for="moneda_origen">Tipo de moneda a cambiar:</label>
-      <select id="moneda_origen" name="moneda_origen">
-        <option value="dolar">Dólar</option>
-        <option value="soles">Soles</option>
-        <option value="euros">Euros</option>
-      </select>
-      <br>
-      <label for="moneda_destino">Tipo de moneda a recibir:</label>
-      <select id="moneda_destino" name="moneda_destino">
-        <option value="dolar">Dólar</option>
-        <option value="soles">Soles</option>
-        <option value="euros">Euros</option>
-      </select>
-      <br>
-      <button type="button" onclick="calcular()">Calcular</button>
-    </form>
-    <script>
-      function calcular() {
-        var moneda_origen = document.getElementById("moneda_origen").value;
-        var moneda_destino = document.getElementById("moneda_destino").value;
-        var tasa;
-        switch (moneda_origen) {
-          case "dolar":
-            switch (moneda_destino) {
-              case "dolar":
-                tasa = 1;
-                break;
-              case "soles":
-                tasa = 3.9; // ejemplo de tasa de cambio
-                break;
-              case "euros":
-                tasa = 0.85; // ejemplo de tasa de cambio
-                break;
-            }
-            break;
-          case "soles":
-            switch (moneda_destino) {
-              case "dolar":
-                tasa = 0.25; // ejemplo de tasa de cambio
-                break;
-              case "soles":
-                tasa = 1;
-                break;
-              case "euros":
-                tasa = 0.21; // ejemplo de tasa de cambio
-                break;
-            }
-            break;
-          case "euros":
-            switch (moneda_destino) {
-              case "dolar":
-                tasa = 1.18; // ejemplo de tasa de cambio
-                break;
-              case "soles":
-                tasa = 4.69; // ejemplo de tasa de cambio
-                break;
-              case "euros":
-                tasa = 1;
-                break;
-            }
-            break;
-        }
-        var total = 10 * tasa; // ejemplo de monto a cambiar
-        alert("Total a recibir: " + total.toFixed(2) + " " + moneda_destino);
-      }
-    </script>
+<head>
+	<title>Casa de Cambios</title>
+  <link rel="stylesheet" href="estilo.css">
+  <script>
+		function calcular() {
+			var moneda1 = document.getElementById("moneda1").value;
+			var moneda2 = document.getElementById("moneda2").value;
+
+			var Cambio = 0;
+			if (moneda1 == "dolar" && moneda2 == "soles") {
+				Cambio = 3.60;
+			} else if (moneda1 == "dolar" && moneda2 == "euros") {
+				Cambio = 0.85;
+			} else if (moneda1 == "soles" && moneda2 == "dolar") {
+				Cambio = 0.28;
+			} else if (moneda1 == "soles" && moneda2 == "euros") {
+				Cambio = 0.24;
+			} else if (moneda1 == "euros" && moneda2 == "dolar") {
+				Cambio = 1.18;
+			} else if (moneda1 == "euros" && moneda2 == "soles") {
+				Cambio = 4.15;
+			}
+
+			var valor = parseFloat(document.getElementById("monto").value);
+			var total = valor * Cambio;
+			alert("El total a recibir es: " + total.toFixed(2));
+		}
+	</script>
+</head>
+<body>
+	<h1>Casa de Cambios</h1>
+	<form>
+		<label for="moneda1">Seleccione la moneda de origen:</label>
+		<select name="moneda1" id="moneda1">
+			<option value="dolar">Dólares</option>
+			<option value="soles">Soles</option>
+			<option value="euros">Euros</option>
+		</select> <br>
+		<label for="moneda2">Seleccione la moneda de destino:</label>
+		<select name="moneda2" id="moneda2">
+			<option value="dolar">Dólares</option>
+			<option value="soles">Soles</option>
+			<option value="euros">Euros</option>
+		</select><br>
+		<label for="monto">Ingrese el monto:</label><br>
+		<input type="text" id="monto" name="monto">
+		<button type="button" onclick="calcular()">Calcular</button>
+	</form>
   </body>
 </html>
